@@ -1,28 +1,34 @@
-body, html {
-    margin: 0;
+#slider {
+    width: 600px;
+    height: 400px;
+    overflow: hidden;
+    position: relative;
+}
+#slider img {
+    width: 100%;
     height: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: #f0f0f0;
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    transition: opacity 1s;
+}
+#slider img.active {
+    opacity: 1;
+}
+#prev, #next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    padding: 10px;
+    cursor: pointer;
+}
+#prev {
+    left: 10px;
 }
 
-.center-content {
-    display: block;
-    text-align: center; /* 确保图片和文字居中对齐 */
-}
-
-img {
-    max-width: 50%;  /* 将图片缩小一半 */
-    height: auto;    /* 保持图片比例 */
-}
-
-.message {
-    margin-top: 10px; /* 让文字与图片保持一定距离 */
-    font-size: 24px;
-    font-family: 'Arial', sans-serif;
-    font-weight: bold;
-    color: #4a4a4a;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
-    letter-spacing: 1px;
+#next {
+    right: 10px;
 }
