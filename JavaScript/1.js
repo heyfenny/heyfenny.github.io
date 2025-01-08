@@ -3,7 +3,7 @@ document.addEventListener("DOMContentLoaded", function() {
     let currentIndex = 0;
     let interval;
     
-    function showNextImage() 
+    function showNextImage() {
         images[currentIndex].classList.remove("active");
         currentIndex = (currentIndex + 1) % images.length;
         images[currentIndex].classList.add("active");
