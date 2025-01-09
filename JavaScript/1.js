@@ -20,7 +20,7 @@ document.addEventListener("DOMContentLoaded", function() {
     document.getElementById("prev").addEventListener("click", showPrevImage1);
 
     function startSlider1() {
-        interval1 = setInterval(showNextImage1, 3000);
+        interval1 = setInterval(showNextImage1, 5500);
     }
 
     function stopSlider1() {
@@ -52,7 +52,7 @@ document.addEventListener("DOMContentLoaded", function() {
     document.getElementById("prev2").addEventListener("click", showPrevImage2);
 
     function startSlider2() {
-        interval2 = setInterval(showNextImage2, 3000);
+        interval2 = setInterval(showNextImage2, 5500);
     }
 
     function stopSlider2() {
