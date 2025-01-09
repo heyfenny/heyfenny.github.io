@@ -16,7 +16,7 @@
     object-fit: cover; /* 确保图片按比例裁剪并铺满容器 */
     transform: translate(-50%, -50%); /* 修正图片中心点 */
     opacity: 0; /* 初始透明 */
-    transition: opacity 1s; /* 切换时的过渡效果 */
+    transition: opacity 2.5s; /* 切换时的过渡效果 */
 }
 
 /* 让当前图片显示 */
