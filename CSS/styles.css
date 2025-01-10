@@ -1,31 +1,31 @@
 /* 让 slider 容器铺满整个屏幕 */
-#slider, #slider2 {
-    width: 100vw; /* 100% 的视口宽度 */
-    height: 100vh; /* 100% 的视口高度 */
-    overflow: hidden; /* 确保溢出的内容被隐藏 */
+.slider {
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
     position: relative;
 }
 
 /* 让图片铺满整个屏幕，同时保持比例 */
-#slider img, #slider2 img {
+.slider img {
     position: absolute;
-    top: 50%; /* 图片垂直居中 */
-    left: 50%; /* 图片水平居中 */
-    width: 100%; /* 图片宽度为屏幕宽度 */
-    height: 100%; /* 图片高度为屏幕高度 */
-    object-fit: cover; /* 确保图片按比例裁剪并铺满容器 */
-    transform: translate(-50%, -50%); /* 修正图片中心点 */
-    opacity: 0; /* 初始透明 */
-    transition: opacity 2.5s; /* 切换时的过渡效果 */
+    top: 50%;
+    left: 50%;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transform: translate(-50%, -50%);
+    opacity: 0;
+    transition: opacity 2.5s;
 }
 
 /* 让当前图片显示 */
-#slider img.active, #slider2 img.active {
+.slider img.active {
     opacity: 1;
 }
 
 /* 调整左右导航按钮的位置和样式 */
-#prev, #next, #prev2, #next2 {
+.prev, .next {
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
@@ -33,21 +33,13 @@
     color: white;
     padding: 10px 15px;
     cursor: pointer;
-    z-index: 1; /* 确保按钮位于图片上层 */
+    z-index: 1;
 }
 
-#prev {
+.prev {
     left: 20px;
 }
 
-#next {
-    right: 20px;
-}
-
-#prev2 {
-    left: 20px;
-}
-
-#next2 {
+.next {
     right: 20px;
 }
