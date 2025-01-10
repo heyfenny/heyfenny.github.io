@@ -1,39 +1,50 @@
 document.addEventListener("DOMContentLoaded", function () {
-    const sliders = document.querySelectorAll(".slider");
+    const slides = document.querySelectorAll("#slider .slide");
+    const prevButton = document.getElementById("prev");
+    const nextButton = document.getElementById("next");
+    let currentIndex = 0;
+    let interval;
 
-    sliders.forEach((slider) => {
-        const images = slider.querySelectorAll("img");
-        const prevButton = slider.querySelector(".prev");
-        const nextButton = slider.querySelector(".next");
-        let currentIndex = 0;
-        let interval;
+    function showSlide(index) {
+        slides.forEach((slide, i) => {
+            const img = slide.querySelector("img");
+            const caption = slide.querySelector(".caption");
 
-        function showNextImage() {
-            images[currentIndex].classList.remove("active");
-            currentIndex = (currentIndex + 1) % images.length;
-            images[currentIndex].classList.add("active");
-        }
+            if (i === index) {
+                img.classList.add("active");
+                caption.classList.add("active");
+            } else {
+                img.classList.remove("active");
+                caption.classList.remove("active");
+            }
+        });
+    }
 
-        function showPrevImage() {
-            images[currentIndex].classList.remove("active");
-            currentIndex = (currentIndex - 1 + images.length) % images.length;
-            images[currentIndex].classList.add("active");
-        }
+    function showNextSlide() {
+        currentIndex = (currentIndex + 1) % slides.length;
+        showSlide(currentIndex);
+    }
 
-        prevButton.addEventListener("click", showPrevImage);
-        nextButton.addEventListener("click", showNextImage);
+    function showPrevSlide() {
+        currentIndex = (currentIndex - 1 + slides.length) % slides.length;
+        showSlide(currentIndex);
+    }
 
-        function startSlider() {
-            interval = setInterval(showNextImage, 5500);
-        }
+    nextButton.addEventListener("click", showNextSlide);
+    prevButton.addEventListener("click", showPrevSlide);
 
-        function stopSlider() {
-            clearInterval(interval);
-        }
+    function startSlider() {
+        interval = setInterval(showNextSlide, 5000);
+    }
 
-        startSlider();
+    function stopSlider() {
+        clearInterval(interval);
+    }
 
-        slider.addEventListener("mouseenter", stopSlider);
-        slider.addEventListener("mouseleave", startSlider);
-    });
+    startSlider();
+    document.getElementById("slider").addEventListener("mouseenter", stopSlider);
+    document.getElementById("slider").addEventListener("mouseleave", startSlider);
+
+    // 初始化第一个 slide
+    showSlide(currentIndex);
 });
