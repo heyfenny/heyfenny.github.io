@@ -16,7 +16,6 @@
     object-fit: cover;
     transform: translate(-50%, -50%);
     opacity: 0;
-    transition: opacity 2.5s;
 }
 
 /* 让当前图片显示 */
@@ -44,17 +43,28 @@
     right: 20px;
 }
 
-/* 图片文字样式 */
+/* 设置文字元素的初始状态 */
 .slider div span {
     position: absolute;
-    top: 10px;
-    left: 50%;
-    transform: translateX(-50%);
-    font-size: 20px;
-    color: white;
-    background-color: rgba(0, 0, 0, 0.5); /* 半透明背景 */
-    padding: 5px 10px;
-    border-radius: 5px;
-    z-index: 2; /* 确保文字在图片上层 */
-    white-space: nowrap; /* 防止文字换行 */
+    left: 3%;  /* 调整文字离左边的距离 */
+    top: 4%;   /* 调整文字离顶部的距离 */
+    color: white; /* 文字颜色 */
+    font-size: 50px; /* 字体大小 */
+
+    opacity: 0;  /* 初始状态下文字透明 */
+    transition: opacity 2.5s; /* 渐隐的过渡效果 */
+    z-index: 1;  /* 确保文字显示在图片的上方 */
+	font-family:"华文彩云";/*设置字体*/
+	-webkit-text-stroke:1px #0000FF;        /*文字描边*/
+	-webkit-text-fill-color:transparent;    /*设置文字的填充颜色*/
+}
+
+/* 图片切换的过渡效果 */
+.slider div img {
+    transition: opacity 2.5s; /* 设置图片的渐隐效果 */
+}
+
+/* 当图片被激活时，文字的透明度变为 1 */
+.slider div img.active + span {
+    opacity: 1;
 }
