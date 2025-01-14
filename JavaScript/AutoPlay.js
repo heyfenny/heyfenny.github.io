@@ -13,8 +13,8 @@ document.addEventListener("DOMContentLoaded", function () {
         const caption = document.createElement("span");
         caption.textContent = altText;
         // 将文字插入到图片父容器中
-        slide.style.position = "relative"; // 设置父容器相对定位
-        slide.appendChild(caption);
+        slider.style.position = "relative"; // 设置父容器相对定位
+        slider.appendChild(caption);
         
         function showNextImage() {
             images[currentIndex].classList.remove("active");
