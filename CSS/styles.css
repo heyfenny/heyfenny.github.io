@@ -43,3 +43,18 @@
 .next {
     right: 20px;
 }
+
+/* 图片文字样式 */
+.slider div span {
+    position: absolute;
+    top: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 20px;
+    color: white;
+    background-color: rgba(0, 0, 0, 0.5); /* 半透明背景 */
+    padding: 5px 10px;
+    border-radius: 5px;
+    z-index: 2; /* 确保文字在图片上层 */
+    white-space: nowrap; /* 防止文字换行 */
+}
