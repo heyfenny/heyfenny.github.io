@@ -54,9 +54,9 @@
     opacity: 0;  /* 初始状态下文字透明 */
     transition: opacity 2.5s; /* 渐隐的过渡效果 */
     z-index: 1;  /* 确保文字显示在图片的上方 */
-	font-family:"华文彩云";/*设置字体*/
-	-webkit-text-stroke:1px #0000FF;        /*文字描边*/
-	-webkit-text-fill-color:transparent;    /*设置文字的填充颜色*/
+    font-family:"华文彩云";/*设置字体*/
+    -webkit-text-stroke:1px #0000FF;        /*文字描边*/
+    -webkit-text-fill-color:transparent;    /*设置文字的填充颜色*/
 }
 
 /* 图片切换的过渡效果 */
