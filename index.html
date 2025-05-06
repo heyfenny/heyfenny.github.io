@@ -601,7 +601,9 @@ function googleTranslateElementInit() {
 </div>
     <div class="wrapper">
       <div class="page-banner-inner"><div class="page-banner-default">
-            <h1 class="page-banner-heading" id="clock">
+            <h1 class="page-banner-heading" id="date">
+            </h1>
+            <h1 class="page-banner-heading" id="time">
             </h1>
             <h2 class="page-banner-subheading">
               Everything has its time and that time must be watched.
@@ -653,41 +655,54 @@ function googleTranslateElementInit() {
   });
   
 var lastDateStr = "";
-function showTime(clock){
+function updateDateIfNeeded(dateElem) {
     var now = new Date();
     var year = now.getFullYear();
     var month = now.getMonth();
     var day = now.getDate();
-    var hour = now.getHours();
-    var minu = now.getMinutes();
-    var second = now.getSeconds();
+
     var monthNames = ["Jan", "Feb", "Mar", "Apr", "May", "Jun",
                       "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
     var weekNames = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
-    day = day < 10 ? "0" + day : day;
-    hour = hour < 10 ? "0" + hour : hour;
-    minu = minu < 10 ? "0" + minu : minu;
-    second = second < 10 ? "0" + second : second;
 
+    day = day < 10 ? "0" + day : day;
     var monthStr = monthNames[month];
     var weekStr = weekNames[now.getDay()];
     var currentDateStr = monthStr + " " + day + ", " + year + " " + weekStr;
 
     if (currentDateStr !== lastDateStr) {
         lastDateStr = currentDateStr;
+        dateElem.innerHTML = lastDateStr;
     }
+}
+
+function updateTime(timeElem) {
+    var now = new Date();
+    var hour = now.getHours();
+    var minu = now.getMinutes();
+    var second = now.getSeconds();
+
+    hour = hour < 10 ? "0" + hour : hour;
+    minu = minu < 10 ? "0" + minu : minu;
+    second = second < 10 ? "0" + second : second;
 
     var timeStr = hour + ":" + minu + ":" + second;
-    clock.innerHTML = lastDateStr + " " + timeStr;
+    timeElem.innerHTML = timeStr;
 }
 
-window.onload = function(){
-    var clock = document.getElementById("clock");
-    showTime(clock); 
+window.onload = function() {
+    var dateElem = document.getElementById("date");
+    var timeElem = document.getElementById("time");
+
+    updateDateIfNeeded(dateElem);
+    updateTime(timeElem);
+
     window.setInterval(function() {
-        showTime(clock);
+        updateDateIfNeeded(dateElem); 
+        updateTime(timeElem);
     }, 1000);
-}
+};
+
 
 </script>
 <div class="theme-toggle">
