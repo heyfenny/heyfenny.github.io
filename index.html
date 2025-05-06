@@ -655,16 +655,22 @@ function googleTranslateElementInit() {
 function showTime(clock){
     var now = new Date();
     var year = now.getFullYear();
-    var month= now.getMonth();
+    var month = now.getMonth();
     var day = now.getDate();
     var hour = now.getHours();
     var minu = now.getMinutes();
     var second = now.getSeconds();
-    month = month+1;
-    var arr_work = new Array("星期日","星期一","星期二","星期三","星期四","星期五","星期六");
-    var week = arr_work[ now.getDay()];
-    var time = year+"年"+month+"月"+day+"日 "+ week+" "+hour+":"+minu+":"+second;
-    clock.innerHTML="当前时间: "+time;
+    var monthNames = ["Jan", "Feb", "Mar", "Apr", "May", "Jun",
+                      "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+    var weekNames = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+    day = day < 10 ? "0" + day : day;
+    hour = hour < 10 ? "0" + hour : hour;
+    minu = minu < 10 ? "0" + minu : minu;
+    second = second < 10 ? "0" + second : second;
+    var monthStr = monthNames[month];
+    var weekStr = weekNames[now.getDay()];
+    var time = monthStr + " " + day + ", " + year + " " + weekStr + " " + hour + ":" + minu + ":" + second;
+    clock.innerHTML = time;
 }
 window.onload = function(){
     var clock = document.getElementById("clock");
