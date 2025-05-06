@@ -652,6 +652,7 @@ function googleTranslateElementInit() {
     }
   });
   
+var lastDateStr = "";
 function showTime(clock){
     var now = new Date();
     var year = now.getFullYear();
@@ -667,15 +668,25 @@ function showTime(clock){
     hour = hour < 10 ? "0" + hour : hour;
     minu = minu < 10 ? "0" + minu : minu;
     second = second < 10 ? "0" + second : second;
+
     var monthStr = monthNames[month];
     var weekStr = weekNames[now.getDay()];
-    var time = monthStr + " " + day + ", " + year + " " + weekStr + " " + hour + ":" + minu + ":" + second;
-    clock.innerHTML = time;
+    var currentDateStr = monthStr + " " + day + ", " + year + " " + weekStr;
+
+    if (currentDateStr !== lastDateStr) {
+        lastDateStr = currentDateStr;
+    }
+
+    var timeStr = hour + ":" + minu + ":" + second;
+    clock.innerHTML = lastDateStr + " " + timeStr;
 }
+
 window.onload = function(){
     var clock = document.getElementById("clock");
-    window.setInterval("showTime(clock)",1000);
-  
+    showTime(clock); 
+    window.setInterval(function() {
+        showTime(clock);
+    }, 1000);
 }
 
 </script>
