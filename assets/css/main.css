@@ -810,7 +810,9 @@ html[data-scroll-status=down] .framework .sidebar {
     height: 426.6666666667px;
   }
 }
-
+.date-time-inline{
+  display: flex;
+}
 /**
  * Layout and sidebar
  */
