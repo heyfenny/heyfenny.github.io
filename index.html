@@ -601,8 +601,7 @@ function googleTranslateElementInit() {
 </div>
     <div class="wrapper">
       <div class="page-banner-inner"><div class="page-banner-default">
-            <h1 class="page-banner-heading">
-              Tomorrow comes never.
+            <h1 class="page-banner-heading" id="clock">
             </h1>
             <h2 class="page-banner-subheading">
               Everything has its time and that time must be watched.
@@ -652,6 +651,27 @@ function googleTranslateElementInit() {
       hashLocate(event.target.getAttribute('href'));
     }
   });
+  
+function showTime(clock){
+    var now = new Date();
+    var year = now.getFullYear();
+    var month= now.getMonth();
+    var day = now.getDate();
+    var hour = now.getHours();
+    var minu = now.getMinutes();
+    var second = now.getSeconds();
+    month = month+1;
+    var arr_work = new Array("星期日","星期一","星期二","星期三","星期四","星期五","星期六");
+    var week = arr_work[ now.getDay()];
+    var time = year+"年"+month+"月"+day+"日 "+ week+" "+hour+":"+minu+":"+second;
+    clock.innerHTML="当前时间: "+time;
+}
+window.onload = function(){
+    var clock = document.getElementById("clock");
+    window.setInterval("showTime(clock)",1000);
+  
+}
+
 </script>
 <div class="theme-toggle">
   <input type="checkbox" id="theme-switch">
